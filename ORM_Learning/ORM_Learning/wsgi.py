@@ -1,5 +1,5 @@
 """
-WSGI config for Amazon project.
+WSGI config for ORM_Learning project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Amazon.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ORM_Learning.settings')
 
 application = get_wsgi_application()
