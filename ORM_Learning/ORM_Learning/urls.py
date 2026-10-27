@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from DB_Learning import views 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", views.show_data, name = "show_data"),
+    path("store_data", views.store_data, name = "store_data")
 ]
