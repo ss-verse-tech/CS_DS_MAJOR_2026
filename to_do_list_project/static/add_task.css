@@ -1,0 +1,20 @@
+.form_section{
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input{
+    width: 100%;
+}
+
+.btn{
+    margin-top: 20px;
+}
+
+.cancel_btn{
+    background-color: #778087;
+}

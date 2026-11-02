@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    background-color: #FAFAFC;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+button{
+    background-color: #087BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="{% static "home.css" %}">
+</head>
+<body>
+    <div class="parent_section">
+        {% include "navbar.html" %}
+
+        <div class="Task_bar">
+            <h1>All Tasks</h1>
+            <table>
+                <tr class="tbl_clmn">
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Done</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+                {% for data in data %}
+                <tr>
+                    <td>{{ data.title }}</td>
+                    <td>{{ data.description }}</td>
+                    <td>{{ data.done }}</td>
+                    <td>{{ data.created }}</td>
+                    <td>
+                        <a href="{% url "edit_task" data.id %}" class="edit_btn">
+                            Edit
+                        </a>
+                        {% comment %} <button type="submit" class="edit_btn">
+                            <a href="{% url "edit_task" std_id.id %}">Edit</a>
+                        </button> {% endcomment %}
+                        <button type="submit" class="delete_btn">Delete</button>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No Tasks Yet</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>
