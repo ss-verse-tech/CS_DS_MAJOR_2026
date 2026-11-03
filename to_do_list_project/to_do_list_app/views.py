@@ -35,3 +35,22 @@ def edit_task(request, id):
             return self.title
     return render(request, 'edit_task.html', {'std_id':std_id})
 
+def delete_task(request, id):
+    std_id = To_Do_List.objects.get(id = id)
+    std_id.delete()
+    return redirect('home')
+
+def update_task(request,id):
+    task_update=To_Do_List.objects.get(id=id)
+    # if request.method=="POST":
+    task=request.POST.get('done')=="True"
+    task_update.done=task
+    task_update.save()
+    return redirect('home')
+
+
+
+
+
+
+

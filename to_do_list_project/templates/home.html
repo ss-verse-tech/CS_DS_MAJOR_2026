@@ -25,16 +25,27 @@
                 <tr>
                     <td>{{ data.title }}</td>
                     <td>{{ data.description }}</td>
-                    <td>{{ data.done }}</td>
-                    <td>{{ data.created }}</td>
                     <td>
+                        <form action="{% url "update_task" data.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="checkbox" {% if data.done %}checked{% endif %} value="True" onchange='this.form.submit()' name='done'>
+                        </form>
+                    </td>
+                    <td>
+                        {% if data.done %}
+                        Task Done
+                        {% else %}
+                        Task Incomplete
+                        {% endif %}
+                    </td>
+                    <td class="edt_dlt_btn">
                         <a href="{% url "edit_task" data.id %}" class="edit_btn">
                             Edit
                         </a>
-                        {% comment %} <button type="submit" class="edit_btn">
-                            <a href="{% url "edit_task" std_id.id %}">Edit</a>
-                        </button> {% endcomment %}
-                        <button type="submit" class="delete_btn">Delete</button>
+
+                        <a href="{% url "delete_task" data.id %}" class="dlt_btn">
+                            Delete
+                        </a>
                     </td>
                 </tr>
                 {% empty %}
